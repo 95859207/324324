@@ -1,7 +1,9 @@
 <template>
   <div>
-      <div :class="{active}" @click="change" id='box'>
-      </div>
+    <button @click="change">点击</button>
+      <span>
+        {{active}}
+      </span>
   </div>
 </template>
 
@@ -10,36 +12,29 @@ export default {
   
   data(){
     return {
-      active:0,
+      active:1,
     }
   },
   mounted(){
   },
   methods:{
     change(){
-      var div = document.querySelector('#box')
-      if(this.active == 0){
-        div.style.backgroundColor = 'blue'
-        this.active++
-      }else if(this.active == 1){
-        div.style.backgroundColor = 'green'
-        this.active++
-      }else if(this.active == 2){
-        div.style.backgroundColor = 'pink'
-        this.active++
-      }else if(this.active == 3){
-        div.style.backgroundColor = 'red'
-        this.active = 0
+      switch (this.active) {
+        case 1:
+          this.active = '我在第一个'
+          break;
+        case 2:
+          this.active = '我在第二个'
+          break;
+        case 3:
+          this.active = '我在第三个'
+          break;
       }
     }
+    
   }
 }
 </script>
 
 <style>
-#box{
-  width: 200px;
-  height: 200px;
-  background: red;
-}
 </style>
